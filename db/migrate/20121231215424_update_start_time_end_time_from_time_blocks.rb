@@ -1,4 +1,4 @@
-class UpdateStartTimeEndTimeFromTimeBlocks < ActiveRecord::Migration
+class UpdateStartTimeEndTimeFromTimeBlocks < ActiveRecord::Migration[4.2]
   def up
   	change_table :time_blocks do |t|
   		t.remove :start_time, :end_time

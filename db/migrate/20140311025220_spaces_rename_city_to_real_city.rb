@@ -1,4 +1,4 @@
-class SpacesRenameCityToRealCity < ActiveRecord::Migration
+class SpacesRenameCityToRealCity < ActiveRecord::Migration[4.2]
   def up
   	rename_column :spaces, :city, :real_city
   end

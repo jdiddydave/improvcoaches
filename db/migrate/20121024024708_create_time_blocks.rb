@@ -1,4 +1,4 @@
-class CreateTimeBlocks < ActiveRecord::Migration
+class CreateTimeBlocks < ActiveRecord::Migration[4.2]
   def change
     create_table :time_blocks do |t|
       t.integer :user_id

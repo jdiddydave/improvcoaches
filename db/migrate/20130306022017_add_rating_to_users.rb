@@ -1,4 +1,4 @@
-class AddRatingToUsers < ActiveRecord::Migration
+class AddRatingToUsers < ActiveRecord::Migration[4.2]
   def change
     add_column :users, :rating, :integer
 

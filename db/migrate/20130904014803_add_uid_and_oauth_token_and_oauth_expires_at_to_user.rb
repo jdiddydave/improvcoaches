@@ -1,4 +1,4 @@
-class AddUidAndOauthTokenAndOauthExpiresAtToUser < ActiveRecord::Migration
+class AddUidAndOauthTokenAndOauthExpiresAtToUser < ActiveRecord::Migration[4.2]
   def change
   	add_column :users, :uid, :string
   	add_column :users, :oauth_token, :string

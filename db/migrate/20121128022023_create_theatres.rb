@@ -1,4 +1,4 @@
-class CreateTheatres < ActiveRecord::Migration
+class CreateTheatres < ActiveRecord::Migration[4.2]
   def change
     create_table :theatres do |t|
       t.string :name

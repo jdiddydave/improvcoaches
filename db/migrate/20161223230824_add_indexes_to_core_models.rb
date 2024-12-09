@@ -1,4 +1,4 @@
-class AddIndexesToCoreModels < ActiveRecord::Migration
+class AddIndexesToCoreModels < ActiveRecord::Migration[4.2]
   def change
   	add_index :time_blocks, :schedule_id
   	add_index :schedules, :user_id

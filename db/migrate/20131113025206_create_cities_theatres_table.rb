@@ -1,4 +1,4 @@
-class CreateCitiesTheatresTable < ActiveRecord::Migration
+class CreateCitiesTheatresTable < ActiveRecord::Migration[4.2]
   def up
   	create_table :cities_theatres, id: false do |t|
   		t.references :city

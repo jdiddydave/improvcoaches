@@ -1,4 +1,4 @@
-class AddAttachmentPhotoToSpaceImages < ActiveRecord::Migration
+class AddAttachmentPhotoToSpaceImages < ActiveRecord::Migration[4.2]
   def self.up
     change_table :space_images do |t|
       t.attachment :photo
