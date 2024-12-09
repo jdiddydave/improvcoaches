@@ -1,11 +1,15 @@
 class AddAttachmentPhotoToSpaceImages < ActiveRecord::Migration[4.2]
-  def self.up
-    change_table :space_images do |t|
-      t.attachment :photo
-    end
+  def up
+    add_column :space_images, :photo_file_name, :string
+    add_column :space_images, :photo_content_type, :string
+    add_column :space_images, :photo_file_size, :bigint
+    add_column :space_images, :photo_updated_at, :datetime
   end
 
-  def self.down
-    drop_attached_file :space_images, :photo
+  def down
+    remove_column :space_images, :photo_file_name
+    remove_column :space_images, :photo_content_type
+    remove_column :space_images, :photo_file_size
+    remove_column :space_images, :photo_updated_at
   end
 end
