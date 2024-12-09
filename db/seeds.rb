@@ -22,15 +22,27 @@ performer = ExperienceType.create!( name: "Performer")
 house_team = ExperienceType.create!( name: "House Team")
 teacher = ExperienceType.create!( name: "Teacher")
 
-#Admin User
-admin = User.create!(
+User.reset_column_information
+
+# Admin User
+User.create!(
   name: 'Improv Admin',
   email: 'admin@improvcoaches.com',
   password: 'adminpass',
-  is_admin: true
+  is_admin: true,
+  city: new_york
 )
 
 # Coaches
 5.times do |i|
-  User.create(name: "Coach #{i}", email: "coache_#{i}@improvcoaches.com", password: 'pass', is_coach: true, is_improv: true, is_sketch: true, is_active: true, city: new_york)
+  user = User.create(
+    name: "Coach #{i}",
+    email: "coach_#{i}@improvcoaches.com",
+    password: 'pass',
+    is_coach: true,
+    is_improv: true,
+    is_sketch: true,
+    is_active: true,
+    city: new_york
+  )
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_19_164253) do
+ActiveRecord::Schema.define(version: 2024_12_09_021441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2024_04_19_164253) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "cities", force: :cascade do |t|
+  create_table "cities", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "country_id"
     t.datetime "created_at"
@@ -60,19 +60,19 @@ ActiveRecord::Schema.define(version: 2024_04_19_164253) do
     t.index ["theatre_id"], name: "index_cities_theatres_on_theatre_id"
   end
 
-  create_table "countries", force: :cascade do |t|
+  create_table "countries", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "experience_types", force: :cascade do |t|
+  create_table "experience_types", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "experiences", force: :cascade do |t|
+  create_table "experiences", id: :serial, force: :cascade do |t|
     t.integer "theatre_id"
     t.integer "user_id"
     t.integer "experience_type_id"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2024_04_19_164253) do
     t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
-  create_table "friendly_id_slugs", force: :cascade do |t|
+  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 40
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2024_04_19_164253) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "invites", force: :cascade do |t|
+  create_table "invites", id: :serial, force: :cascade do |t|
     t.string "code"
     t.integer "owner_id"
     t.string "recipient"
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2024_04_19_164253) do
     t.index ["owner_id"], name: "index_invites_on_owner_id"
   end
 
-  create_table "schedules", force: :cascade do |t|
+  create_table "schedules", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
     t.datetime "created_at"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2024_04_19_164253) do
     t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
-  create_table "space_images", force: :cascade do |t|
+  create_table "space_images", id: :serial, force: :cascade do |t|
     t.integer "space_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 2024_04_19_164253) do
     t.integer "sort_order"
   end
 
-  create_table "spaces", force: :cascade do |t|
+  create_table "spaces", id: :serial, force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.integer "city_id"
@@ -144,14 +144,14 @@ ActiveRecord::Schema.define(version: 2024_04_19_164253) do
     t.index ["slug"], name: "index_spaces_on_slug"
   end
 
-  create_table "theatres", force: :cascade do |t|
+  create_table "theatres", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "city_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "time_blocks", force: :cascade do |t|
+  create_table "time_blocks", id: :serial, force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "day"
@@ -161,7 +161,7 @@ ActiveRecord::Schema.define(version: 2024_04_19_164253) do
     t.index ["schedule_id"], name: "index_time_blocks_on_schedule_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.boolean "is_coach"
